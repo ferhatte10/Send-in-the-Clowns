@@ -1,0 +1,30 @@
+{
+  "name": "sendintheclowns",
+  "version": "1.0.0",
+  "description": "Stream video from your webcam to the browser and use AI to detect objects in the video stream.",
+  "main": "./server/proxy.js",
+  "scripts": {
+    "start": "cd server && node proxy.js",
+    "proxy": "cd server && nodemon proxy.js",
+    "server": "cd server && nodemon server.js",
+    "dev": "concurrently \"npm run proxy\" \"npm run server\""
+  },
+  "devDependencies": {
+    "nodemon": "2.0.3"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.1",
+    "express": "^4.17.1",
+    "http-proxy": "^1.18.1",
+    "socket.io": "^2.5.0"
+  },
+  "keywords": [
+    "multimedia",
+    "stream",
+    "video",
+    "socket",
+    "AI"
+  ],
+  "author": "Ferhat & Zakaria",
+  "license": "MIT"
+}
