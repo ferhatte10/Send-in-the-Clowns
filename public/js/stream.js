@@ -8,6 +8,7 @@ let video = document.getElementById("video");
 
 let socket = io('ws://localhost:8001');
 
+
 function logger(msg){
     document.getElementById("log").innerHTML = msg;
 }
@@ -32,11 +33,11 @@ function Draw(video,context){
     context.drawImage(video,0,0,context.width,context.height);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // DOM ready
 
-    navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia );
+    navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia ); // Cross browser support
 
-    if(navigator.getUserMedia)
+    if(navigator.getUserMedia) // Access the camera stream
     {
         navigator.getUserMedia({
             video: true,
@@ -44,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
         },loadCamera,loadFail);
     }
 
-    const poseNet = ml5.poseNet(video, modelReady);
-    poseNet.on("pose", gotPoses);
+    const poseNet = ml5.poseNet(video, modelReady); // Load the PoseNet model
+    poseNet.on("pose", gotPoses); // Listen to new 'pose' events
 
     function modelReady() {
         console.log("Model ready!");
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         socket.emit('stream', {img : canvas.toDataURL('image/webp'),pos : poses});
     }
 
-    setInterval(function(){
+    setInterval(function(){ // Loop and redraw the canvas every 22ms
         Draw(video,context);
     },22);
 
