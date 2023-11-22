@@ -20,14 +20,14 @@ Il exeste deux ongles dans l'application : un onglet pour streamer le flux vidé
 - Node.js pour exécuter le serveur WebSocket.
 
 ## Installation
-1. Installez les dépendances Node.js :
+- Installez les dépendances Node.js :
 
 ```shell
 npm install
 ```
 
 ## Démarrage
-1. Lancez le serveur : 
+- Lancez le serveur : 
 
 ```shell
 npm run dev
