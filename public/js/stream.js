@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(function(){
         Draw(video,context);
-    },33);
+    },22);
 
 
 });
